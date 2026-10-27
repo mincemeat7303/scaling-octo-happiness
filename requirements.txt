@@ -1,2 +1,8 @@
+# Data analysis and visualization
+numpy
 pandas
 matplotlib
+
+# Machine learning and notebook kernel
+scikit-learn
+ipykernel

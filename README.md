@@ -1,144 +1,80 @@
-# Group Members
+# Machine Learning Notebooks
 
-# Online Shoppers Purchasing Intention Prediction
+This repository contains exploratory data analysis and classification workflows for two datasets:
 
-A machine learning project that predicts whether an online shopping session will result in a purchase (`Revenue = True`) using the UCI Online Shoppers Purchasing Intention Dataset.
+- **Online Shoppers Purchasing Intention** — predicts whether a browsing session results in a purchase (`Revenue`).
+- **Credit Card Fraud 2023** — explores transaction features and the binary fraud label (`Class`).
 
-## Project Overview
-
-#The project explores customer browsing behaviour through:
-
-#- Exploratory Data Analysis (EDA)
-#- Data preprocessing
-#- Feature encoding and scaling
-#- Binary classification models
-#- Hyperparameter tuning
-#- Model evaluation
-
-## Dataset
-
-- **Dataset:** Online Shoppers Purchasing Intention Dataset
-- **Source:** UCI Machine Learning Repository
-- **Instances:** 12,330
-- **Features:** 17 input features and 1 target (`Revenue`)
-- **Task:** Binary Classification
-
-Official dataset:
-https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset
-
-## Project Structure
-
-
-
-## Prerequisites
-
-Install the following software:
-
-- Python 3.11 or later
-- Git
-- Visual Studio Code 
-- VS Code Python extension
-- VS Code Jupyter extension
-
-## Setup Instructions
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/mincemeat7303/scaling-octo-happiness.git
-cd ML_online_shopping-tendancy
-```
-
-
-## Environment setup
-
-This project uses a Jupyter notebook and the notebook kernel is based on the local `.venv` environment with Python 3.14.6.
-
-### 1) Create and activate the virtual environment
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-
-### 4. Install dependencies
-
-```bash
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
-
-### 5. Register the Jupyter kernel
-
-```bash
-python -m ipykernel install --user --name online-shopper-env --display-name ".venv (3.14.6)"
-```
-
-## Dataset Setup
-
-Download the dataset from the UCI repository and place it inside:
+## Repository contents
 
 ```text
-datasets/
-└── online_shoppers_intention.csv
+.
+├── datasets/
+│   ├── online_shoppers_intention.csv
+│   └── creditcard_2023.csv
+├── ML_online_shopping-tendancy.ipynb
+├── ML_learn2.ipynb
+├── requirements.txt
+└── README.md
 ```
 
+The datasets are not included in this repository. Download them from their sources and place the CSV files in `datasets/` using the filenames above.
+
+## Notebooks
+
+### Online shoppers
+
+Open `ML_online_shopping-tendancy.ipynb` to:
+
+- inspect and prepare the online-shopping data;
+- explore numeric feature distributions and correlations with `Revenue`;
+- create fixed-seed, stratified 70% training, 15% validation, and 15% test splits;
+- train logistic regression and random forest models using preprocessing pipelines; and
+- compare validation accuracy, precision, F1, and ROC AUC, with ROC curves and confusion matrices.
+
+The model comparison uses the training and validation sets only. Keep the test set untouched until model selection is complete.
 
 
 
-## Typical Workflow
+## Setup
 
-1. Activate the virtual environment.
-2. Open VS Code.
-3. Select the **Python (Online Shopper)** kernel.
-"""4. Run:
-  """ - `EDA.ipynb`
-   - `preprocessing.ipynb`
-   - `model_training.ipynb`"""
-"5. Compare baseline and tuned models."""
+Requirements: Python 3.11 or later, Git, and Visual Studio Code with the Python and Jupyter extensions.
 
-## Models
+1. Clone the repository and change into its directory:
 
-### Baseline
+   ```bash
+   git clone https://github.com/mincemeat7303/scaling-octo-happiness.git
+   cd scaling-octo-happiness
+   ```
 
-- Logistic Regression
+2. Create and activate a virtual environment:
 
-### Modern Machine Learning
+   **Windows PowerShell**
 
-- XGBoost
-- LightGBM
-- MLP
+   ```powershell
+   py -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
 
-### Hyperparameter Tuning
+   **macOS/Linux**
 
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
 
+3. Install the project dependencies:
 
-## Evaluation Metrics
+   ```bash
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt
+   ```
 
-Model performance may be evaluated using:
+4. Put the CSV files in the `datasets/` directory, open the desired notebook in VS Code, and select the `.venv` Python environment as its kernel.
 
+5. Run the notebook cells from top to bottom.
 
+## Data sources
 
-## Troubleshooting
+- [Online Shoppers Purchasing Intention Dataset](https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset) — Sakar and Kastro, UCI Machine Learning Repository (2018), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-### Python not found
-
-Check that Python is installed:
-
-```bash
-python --version
-```
-
-### Virtual environment not activating
-
-Use Command Prompt instead of PowerShell if execution policies block activation.
-
-### Missing packages
-
-Run:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-## References
-
-Sakar, C., & Kastro, Y. (2018). *Online Shoppers Purchasing Intention Dataset*. UCI Machine Learning Repository.
